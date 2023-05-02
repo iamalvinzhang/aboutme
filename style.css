@@ -9,6 +9,8 @@
 
 body {
     background: #eef;
+    overflow-x: hidden;
+    overflow-y: hidden;
     }
   
 .darkbtn {
