@@ -1,34 +1,44 @@
-<html>
+<!DOCTYPE html>
+<html lang="en" >
 <head>
-	<title>Image Gallery</title>
-	<style>
-		.gallery {
-			margin: 5px;
-    border: 1px solid #ccc;
-    float: left;
-    width: 180px;
-			
-		}
-		.gallery img {
-			max-width: 1000px;
-			margin: 10px;
-			border: 2px solid #ccc;
-			border-radius: 5px;
-			box-shadow: 0 0 5px #ccc;
-		}
-	</style>
+  <meta charset="UTF-8">
+  <title>CodePen - Simple CSS Waves | Mobile &amp; Full width</title>
+  <link rel="stylesheet" href="./style.css">
+
 </head>
 <body>
-	<div class="gallery">
-		<img src="eb1.png">
-		<img src="eb2.png">
-		<img src="eb3.png">
-		<img src="eb4.png">
-		<img src="rank90.png">
-        <img src="olddiscord.png">
-        <img src ="oldtwitter.png">
-        <img src = "discordeb.png">
-        <img src = "wxeb.png">
-	</div>
+
+
+<div class="header">
+
+<div>
+
+  <div class="gallery">
+  <img src="eb1.png">
+  <img src="eb2.png">
+  <img src="eb3.png">
+  <img src="eb4.png">
+  <img src = "rank90.png">
+  <img src = "olddiscord.png">
+  <img src = "discordeb.png">
+  <img src = "wxeb.png">
+ 
+</div>
+
+<svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+<defs>
+<path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+</defs>
+<g class="parallax">
+<use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(185, 112, 150, 0.8)" />
+<use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(142, 172, 198, 0.8)" />
+<use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(26, 174, 120, 0.8)" />
+<use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(26, 174, 120, 0.45)" />
+</g>
+</svg>
+
+
+  
 </body>
 </html>
