@@ -1,0 +1,44 @@
+
+.glowing-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 10px 5px rgba(65, 105, 225, 0.7),
+              0 0 20px 10px rgba(65, 105, 225, 0.5),
+              0 0 30px 15px rgba(65, 105, 225, 0.3);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  transition: background-color 0.2s ease;
+  mix-blend-mode: screen;
+}
+
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+.glowing-cursor.pulse {
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+
+.glowing-cursor.clickable {
+  background-color: rgba(255, 165, 0, 0.5);
+  box-shadow: 0 0 10px 5px rgba(255, 165, 0, 0.7),
+              0 0 20px 10px rgba(255, 165, 0, 0.5),
+              0 0 30px 15px rgba(255, 165, 0, 0.3);
+}
