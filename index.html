@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Hide blinking cursor */
+        * {
+            caret-color: transparent;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #f5ebe0 0%, #f0e4d7 30%, #ead9c8 100%);
+            min-height: 100vh;
+            color: #5a6f6d;
+            position: relative;
+        }
+
+        /* Watercolor cloud effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60%;
+            background-image: 
+                radial-gradient(ellipse 600px 300px at 25% 20%, rgba(255, 250, 245, 0.9) 0%, transparent 50%),
+                radial-gradient(ellipse 500px 250px at 15% 35%, rgba(245, 220, 195, 0.4) 0%, transparent 60%),
+                radial-gradient(ellipse 400px 200px at 40% 15%, rgba(255, 248, 240, 0.85) 0%, transparent 55%),
+                radial-gradient(ellipse 350px 180px at 60% 30%, rgba(240, 210, 180, 0.35) 0%, transparent 60%),
+                radial-gradient(ellipse 450px 220px at 80% 20%, rgba(255, 245, 235, 0.8) 0%, transparent 50%),
+                radial-gradient(ellipse 300px 150px at 70% 35%, rgba(235, 205, 175, 0.3) 0%, transparent 55%),
+                radial-gradient(ellipse 550px 280px at 35% 40%, rgba(245, 215, 185, 0.25) 0%, transparent 65%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Additional cloud texture layer */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60%;
+            background-image: 
+                radial-gradient(circle 200px at 10% 25%, rgba(240, 210, 180, 0.2) 0%, transparent 40%),
+                radial-gradient(circle 180px at 90% 15%, rgba(250, 225, 200, 0.25) 0%, transparent 45%),
+                radial-gradient(circle 220px at 50% 30%, rgba(255, 250, 245, 0.6) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 20px 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            font-size: 4rem;
+            font-weight: 300;
+            color: #b8693d;
+            letter-spacing: 0.08em;
+            margin-bottom: 10px;
+            line-height: 0.9;
+            display: inline-block;
+        }
+
+        .logo span {
+            display: inline-block;
+            opacity: 0;
+            animation: raindrop 0.6s ease-out forwards;
+        }
+
+        @keyframes raindrop {
+            0% {
+                opacity: 0;
+                transform: translateY(-100px);
+            }
+            60% {
+                transform: translateY(10px);
+            }
+            80% {
+                transform: translateY(-5px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo span:nth-child(1) { animation-delay: 0.1s; }
+        .logo span:nth-child(2) { animation-delay: 0.2s; }
+        .logo span:nth-child(3) { animation-delay: 0.3s; }
+        .logo span:nth-child(4) { animation-delay: 0.4s; }
+        .logo span:nth-child(5) { animation-delay: 0.5s; }
+        .logo span:nth-child(6) { animation-delay: 0.6s; }
+        .logo span:nth-child(7) { animation-delay: 0.7s; }
+
+        .logo-prefix {
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 0.3em;
+            display: block;
+            margin-bottom: -5px;
+            color: #8a9e98;
+        }
+
+        /* Placeholder text section */
+        .placeholder-text {
+            max-width: 600px;
+            margin: 20px auto 40px;
+            color: #6a8280;
+            line-height: 1.8;
+            font-size: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Image container */
+        .placeholder-image {
+            margin: 30px auto 0;
+            position: relative;
+            z-index: 1;
+            max-width: 80%;
+            text-align: center;
+        }
+
+        .placeholder-image img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .placeholder-image.original-size img {
+            max-width: 1536px;
+        }
+
+        .placeholder-image video {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Main content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section {
+            margin-bottom: 80px;
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+            position: relative;
+        }
+
+        .section:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .section:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Home section */
+        .home-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .profile-photo {
+            width: 280px;
+            height: 350px;
+            background: white;
+            padding: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transform: rotate(-3deg);
+            position: relative;
+        }
+
+        .profile-photo::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(to bottom, transparent, rgba(218, 188, 125, 0.3));
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+        }
+
+        .home-label {
+            position: absolute;
+            top: -40px;
+            left: 20px;
+            font-size: 2rem;
+            color: #c5d8d6;
+            font-weight: 300;
+        }
+
+        /* About section */
+        .about-content {
+            max-width: 600px;
+            margin-left: auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .about-label {
+            font-size: 2rem;
+            color: #a8b8b6;
+            font-weight: 300;
+            margin-bottom: 20px;
+            text-align: right;
+        }
+
+        .about-content h3 {
+            color: #5a7a77;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .about-content p {
+            color: #6a8280;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .about-content a {
+            color: #88a5a3;
+            text-decoration: underline;
+        }
+
+        /* Link styling */
+        a {
+            color: #b8693d;
+            text-decoration: underline;
+        }
+
+        a:hover {
+            color: #9a5530;
+        }
+
+        /* Contact section */
+        .contact-section {
+            max-width: 500px;
+            margin-left: auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-label {
+            font-size: 2rem;
+            color: #a8b8b6;
+            font-weight: 300;
+            margin-bottom: 30px;
+            text-align: right;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #7a9290;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #b8d0ce;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 5px;
+            font-family: inherit;
+            color: #5a7a77;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #88a5a3;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        button {
+            background: #a8c8c5;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #8db5b2;
+        }
+
+        /* Decorative origami elements */
+        .origami-small {
+            position: fixed;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .origami-1 {
+            top: 15%;
+            right: 10%;
+            width: 60px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .origami-2 {
+            bottom: 20%;
+            left: 8%;
+            width: 50px;
+            animation: float 10s ease-in-out infinite 2s;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+
+            nav a {
+                margin: 0 10px;
+                font-size: 1rem;
+            }
+
+            .home-section {
+                flex-direction: column;
+            }
+
+            .about-content,
+            .contact-section {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <span>W</span><span>e</span><span>l</span><span>c</span><span>o</span><span>m</span><span>e</span>
+        </div>
+    </header>
+
+    <div class="placeholder-image">
+        <img src="image.png" alt="Introduction image">
+    </div>
+
+
+
+    <div class="placeholder-text" style="text-align: center;">
+    <p>I'm also learning origami and am pretty good at <a href="https://arithmetic.zetamac.com/" target="_blank">Zetamac</a>.</p>
+        <p>Songs playing are <a href="https://www.youtube.com/watch?v=isx1oNFDki4" target="_blank">In Love by July</a> and <a href="https://www.youtube.com/watch?v=wIwVK9jofUo" target="_blank">
+Sogyeokdong by IU</a> .</p>
+
+</div>
+
+     <div class="placeholder-image">
+        <video controls>
+            <source src="pr.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+</body>
+</html>
